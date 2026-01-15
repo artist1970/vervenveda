@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Verve N Veda — Header + Landing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@444;666&family=Montserrat:wght@333;444;555&display=swap" rel="stylesheet">
+
+  <style>
+    html, body {
+      height: 88%;
+      margin: 7px 7px 7px 7px;
+      padding: 7px 7px 7px;
+    }
+
+    body {
+      background: #000000;
+      color: #ffffff;
+      font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    /* ===== Header ===== */
+
+    .vv-header-shell {
+      width: 100%;
+      box-sizing: border-box;
+      border-bottom: 3px solid rgba(255,255,255,0.07);
+      background: rgba(0,0,0,0.96);
+    }
+
+    .vv-header {
+      max-width: 777px;
+      max-height: 777px;
+      margin: 7px auto;
+      padding: 44px 44px 44px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 66px;
+      text-align: center;
+    }
+
+    .vv-brand-text {
+      font-family: "Cinzel", "Times New Roman", serif;
+      font-size: 66px;
+      letter-spacing: 0.21em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .vv-nav-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 66px;
+      flex-wrap: wrap;
+    }
+
+    .vv-link {
+      font-size: 14px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #dddddd;
+      padding: 7px 7px 7px;
+    }
+
+    .vv-link:hover {
+      color: #ffffff;
+    }
+
+    .vv-menu-toggle {
+      border-radius: 7px;
+      border: 1px solid rgba(255,255,255,0.7);
+      background: transparent;
+      color: #ffffff;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 9px 24px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .vv-menu-toggle span {
+      font-size: 11px;
+      transform-origin: center;
+      transition: transform 160ms ease-out;
+    }
+
+    .vv-menu-toggle[aria-expanded="true"] span {
+      transform: rotate(180deg);
+    }
+
+    /* ===== Dropdown panel ===== */
+
+    .vv-menu-panel {
+      max-width: 1111px;
+      margin: 0 auto;
+      padding: 24px 24px 24px;
+      box-sizing: border-box;
+      display: none;
+    }
+
+    .vv-menu-panel.is-open {
+      display: block;
+    }
+
+    .vv-menu-inner {
+      border-radius: 21px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: radial-gradient(circle at top left, #222 0%, #050505 70%);
+      padding: 24px 24px 24px;
+    }
+
+    .vv-menu-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .vv-menu-title {
+      font-size: 14px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: #bbbbbb;
+    }
+
+    .vv-menu-note {
+      font-size: 11px;
+      color: #777777;
+    }
+
+    .vv-menu-columns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 11px 24px;
+    }
+
+    .vv-menu-col-title {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 9px;
+      color: #e2e2e2;
+    }
+
+    .vv-chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .vv-chip {
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 7px; /* squared off, sacred corner */
+      border: 1px solid rgba(255,255,255,0.45);
+      font-size: 11px;
+      text-decoration: none;
+      color: #f5f5f5;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      background: transparent;
+      transition: background 150ms ease-out, transform 150ms ease-out, border-color 150ms ease-out;
+    }
+
+    .vv-chip:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.8);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 720px) {
+      .vv-menu-columns {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .vv-menu-columns {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .vv-brand-text {
+        font-size: 24px;
+        letter-spacing: 0.14em;
+        white-space: normal;
+      }
+    }
+
+    /* ===== Hero ===== */
+
+    .vv-hero {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 54px 33px 72px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .vv-logo-wrap {
+      max-width: 260px;
+      margin: 0 auto 27px;
+    }
+
+    .vv-sub {
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 540px;
+      margin: 0 auto 27px;
+      color: #dddddd;
+    }
+
+    .vv-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .vv-btn {
+      display: inline-block;
+      padding: 11px 27px;
+      border-radius: 7px; /* squared off */
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid #ffffff;
+      transition: all 180ms ease-out;
+    }
+
+    .vv-btn-primary {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    .vv-btn-primary:hover {
+      background: #f5f5f5;
+      transform: translateY(-1px);
+    }
+
+    .vv-btn-ghost {
+      background: transparent;
+      color: #ffffff;
+    }
+
+    .vv-btn-ghost:hover {
+      background: rgba(255,255,255,0.06);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 480px) {
+      .vv-hero {
+        padding: 42px 21px 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER + DROPDOWN ===== -->
+  <div class="vv-header-shell">
+    <header class="vv-header">
+      <div class="vv-brand-text">Verve N Veda</div>
+
+      <div class="vv-nav-right">
+        <a href="https://www.vervenveda.com" class="vv-link" target="_blank" rel="noopener">
+          Ecosystem
+        </a>
+
+        <button class="vv-menu-toggle" type="button" aria-expanded="false" aria-label="Open Verve N Veda palette">
+          Palette
+          <span>▾</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="vv-menu-panel" id="vvPalettePanel">
+      <div class="vv-menu-inner">
+        <div class="vv-menu-title-row">
+          <div class="vv-menu-title">Verve N Veda Palette</div>
+          <div class="vv-menu-note">Tap any tool to open. Add more as the portal grows.</div>
+        </div>
+
+        <div class="vv-menu-columns">
+          <!-- Column 1 -->
+          <div>
+            <div class="vv-menu-col-title">Personal</div>
+            <div class="vv-chip-list">
+              <a href="https://www.vervenveda.com/daily-widget" class="vv-chip">Daily Widget</a>
+              <a href="https://www.vervenveda.com/blogcircle" class="vv-chip">Blog Circle</a>
+              <a href="https://www.vervenveda.com/auraenspire" class="vv-chip">AuraenSpire</a>
+              <a href="https://www.vervenveda.com/morning-inspriation" class="vv-chip">Morning Inspiration</a>
+              <a href="https://www.vervenveda.com/journal" class="vv-chip">Daily Journal</a>
+            </div>
+
+            <div class="vv-menu-col-title" style="margin-top:18px;">Groups</div>
+            <div class="vv-chip-list">
+              <a href="https://www.vervenveda.com/group/bazaar-art-zone/discussion" class="vv-chip">Bazaar Art Zone</a>
+              <a href="https://www.vervenveda.com/group/khaemenes-chat/discussion" class="vv-chip">Khaemenes Chat</a>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div>
+            <div class="vv-menu-col-title">Creative Work</div>
+            <div class="vv-chip-list">
+              <a href="https://www.vervenveda.com/myartgallery" class="vv-chip">My Art Gallery</a>
+              <a href="https://www.vervenveda.com/my-spinet" class="vv-chip">My Spinet</a>
+              <a href="https://www.vervenveda.com/color-shift-cascades" class="vv-chip">Color-Shift Cascades</a>
+              <a href="https://www.khaemenesacademy.com/sagaenstudio" class="vv-chip">SagaenStudio</a>
+            </div>
+
+            <div class="vv-menu-col-title" style="margin-top:18px;">Professional</div>
+            <div class="vv-chip-list">
+              <a href="https://www.vervenveda.com/website-design" class="vv-chip">Website Design</a>
+              <a href="https://www.vervenveda.com/prose" class="vv-chip">Prose</a>
+              <a href="https://www.vervenveda.com/khaezip" class="vv-chip">KhaeZip</a>
+              <a href="https://www.vervenveda.com/firmament-law" class="vv-chip">Firmament Law</a>
+              <a href="https://www.vervenveda.com/solanar-space-center" class="vv-chip">Solanar Space Center</a>
+            </div>
+          </div>
+
+          <!-- Column 3 -->
+          <div>
+            <div class="vv-menu-col-title">Games</div>
+            <div class="vv-chip-list">
+              <a href="https://www.vervenveda.com/lumin-gate" class="vv-chip">Lumin Gate</a>
+              <a href="https://www.vervenveda.com/mandala-games" class="vv-chip">Mandala Games</a>
+              <a href="https://www.vervenveda.com/affixsix" class="vv-chip">Affix-Six</a>
+              <a href="https://www.vervenveda.com/thymetomow" class="vv-chip">Thyme To Mow</a>
+            </div>
+
+            <div class="vv-menu-col-title" style="margin-top:18px;">Khaemenes Academy</div>
+            <div class="vv-chip-list">
+              <a href="https://www.khaemenesacademy.com" class="vv-chip">Academy Home</a>
+              <a href="https://www.khaemenesacademy.com/creche" class="vv-chip">Crèche</a>
+              <a href="https://www.vervenveda.com/pearlspalette" class="vv-chip">Pearls Palette</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="vv-hero">
+    <div class="vv-logo-wrap">
+      <!-- Monogram icon: black background, white symbol, no text -->
+      <svg viewBox="0 0 288 288" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+        <title>Verve N Veda — Monogram Icon</title>
+
+        <rect width="288" height="288" fill="#000000"/>
+
+        <circle
+          cx="144" cy="144" r="108"
+          fill="none"
+          stroke="#FFFFFF"
+          stroke-width="7"
+        />
+        <circle
+          cx="144" cy="144" r="72"
+          fill="none"
+          stroke="#FFFFFF"
+          stroke-width="3"
+        />
+        <line
+          x1="144" y1="72"
+          x2="144" y2="216"
+          stroke="#FFFFFF"
+          stroke-width="3"
+        />
+        <rect
+          x="133.5" y="133.5"
+          width="21" height="21"
+          fill="#FFFFFF"
+          transform="rotate(45 144 144)"
+        />
+      </svg>
+    </div>
+
+    <p class="vv-sub">
+      Elegant, minimal systems for artists, educators, builders, and guardians of new worlds
+      who want a sovereign, intentional partner. Every collaboration begins with a real story,
+      not a template.
+    </p>
+
+    <div class="vv-actions">
+     
+    <a
+  href="https://www.vervenveda.com/collaboration"
+  class="vv-btn vv-btn-ghost"
+  onclick="window.location.href='https://www.vervenveda.com/collaboration'; return false;"
+>
+  Begin a Collaboration
+</a>
+
+  <script>
+    (function() {
+      var toggle = document.querySelector('.vv-menu-toggle');
+      var panel  = document.getElementById('vvPalettePanel');
+
+      if (!toggle || !panel) return;
+
+      function setOpen(open) {
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (open) {
+          panel.classList.add('is-open');
+        } else {
+          panel.classList.remove('is-open');
+        }
+      }
+
+      toggle.addEventListener('click', function(e) {
+        var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        setOpen(!isOpen);
+        e.stopPropagation();
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!panel.contains(e.target) && e.target !== toggle) {
+          setOpen(false);
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          setOpen(false);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
