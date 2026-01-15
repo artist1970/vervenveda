@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Creative Sandbox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { background: #f5f3eb; margin: 0; font-family: 'Cinzel', serif; }
+    .sandbox-container { max-width: 800px; margin: 0 auto; padding: 32px 10px; }
+    .app-box { margin-bottom: 40px; background: #fff9ed; border-radius: 22px; box-shadow: 0 6px 24px #0001; padding: 24px; }
+  </style>
+</head>
+<body>
+  <div class="sandbox-container">
+    <div class="app-box" id="app1"><!-- Ritual Wheel goes here --></div>
+    <div class="app-box" id="app2"><!-- Voice to Verse here --></div>
+    <div class="app-box" id="app3"><!-- Star Map here --></div>
+  </div>
+  <script>
+    // You can put all JS for all apps right here!
+    // No outside dependencies = never breaks!
+  </script>
+</body>
+</html>
