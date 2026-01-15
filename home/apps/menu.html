@@ -1,0 +1,149 @@
+<!-- SACRED TOOLS · DARK COSMIC BAR -->
+<div class="sacred-tools-bar-dark">
+  <div class="sacred-tools-inner-dark">
+    <span class="sacred-pill-dark sacred-pill-dark-label">Sacred Tools</span>
+
+    <!-- Back pill -->
+    <button type="button" class="sacred-pill-dark sacred-back-pill" data-sacred-back>
+      ← Back
+    </button>
+
+    <a class="sacred-pill-dark" href="https://www.vervenveda.com/home" target="_blank" rel="noopener">
+      Verve N Veda · Home
+    </a>
+    <a class="sacred-pill-dark" href="https://www.khaemenesacademy.com" target="_blank" rel="noopener">
+      Khaemenes Academy
+    </a>
+    <a class="sacred-pill-dark" href="https://www.vervenveda.com/auraenspire" target="_blank" rel="noopener">
+      AuraenSpire Studio
+    </a>
+    <a class="sacred-pill-dark" href="https://www.vervenveda.com/inspriation" target="_blank" rel="noopener">
+      Inspiration Portal
+    </a>
+    <a class="sacred-pill-dark" href="https://www.vervenveda.com/the-verifier-news" target="_blank" rel="noopener">
+      The Verifier · News
+    </a>
+    <a class="sacred-pill-dark" href="https://www.vervenveda.com/solanar" target="_blank" rel="noopener">
+      Solanar · Guardian Gate
+    </a>
+    <a class="sacred-pill-dark" href="https://www.vervenveda.com/arshif" target="_blank" rel="noopener">
+      Arshif Archives
+    </a>
+    <a class="sacred-pill-dark" href="https://www.khaemenesacademy.com/noorai-darib" target="_blank" rel="noopener">
+      NoorAI Darib · Qur’an
+    </a>
+    <a class="sacred-pill-dark" href="https://www.vervenveda.com/myartgallery" target="_blank" rel="noopener">
+      My Art Gallery
+    </a>
+
+    <!-- Artist / projects -->
+    <a class="sacred-pill-dark" href="https://www.vervenveda.com/jenny-pearl" target="_blank" rel="noopener">
+      Jenny Pearl · Artist
+    </a>
+    <a class="sacred-pill-dark" href="https://www.vervenveda.com/projects" target="_blank" rel="noopener">
+      Projects
+    </a>
+    <a class="sacred-pill-dark" href="https://www.vervenveda.com/website-design" target="_blank" rel="noopener">
+      Website Design
+    </a>
+    <a class="sacred-pill-dark" href="https://www.vervenveda.com/bazaarart" target="_blank" rel="noopener">
+      BazaarArt
+    </a>
+    <a class="sacred-pill-dark" href="https://www.vervenveda.com/onenation" target="_blank" rel="noopener">
+      One Nation
+    </a>
+  </div>
+</div>
+
+<style>
+/* === SACRED TOOLS · DARK COSMIC BAR === */
+
+.sacred-tools-bar-dark{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  padding:11px 11px;
+  background:#000000;
+  box-sizing:border-box;
+}
+
+.sacred-tools-inner-dark{
+  max-width:1234px;
+  margin:0 auto;
+  padding:11px 11px;
+  border-radius:11px;
+  background:linear-gradient(133deg,#000000,#000000);
+  border:1px solid rgba(222,222,222,0.77); /* silver halo */
+  box-shadow:0 44px 44px rgba(0,0,0,0.7);
+  display:flex;
+  flex-wrap:wrap;
+  gap:11px;
+  justify-content:center;
+  align-items:center;
+  box-sizing:border-box;
+  font-family:'Brandon Grotesque','Futura','Futura PT','Montserrat',
+              system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+.sacred-pill-dark{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 8px;
+  border-radius:8px;
+  font-size:8px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  border:1px solid rgba(222,222,222,0.9); /* silver outline */
+  color:#FBFAF8;
+  background:rgba(0,0,0,0.14);
+  text-decoration:none;
+  white-space:nowrap;
+  line-height:.77;
+  transition:background .24s,transform .24s,box-shadow .24s,color .24s;
+}
+
+.sacred-pill-dark-label{
+  background:linear-gradient(133deg,#787474,#a8a8b8);
+  color:#FBFAF8;
+  border-color:transparent;
+  box-shadow:0 24px 24px rgba(0,0,0,0.6);
+}
+
+a.sacred-pill-dark:hover,
+button.sacred-pill-dark:hover{
+  background:linear-gradient(133deg,#f5f5f8,#b5b5c6);
+  color:#787474;
+  transform:translateY(-1px);
+  box-shadow:0 24px 24px rgba(0,0,0,0.55);
+  cursor:pointer;
+}
+
+/* Wrap gracefully on phones */
+@media (max-width:888px){
+  .sacred-tools-inner-dark{
+    border-radius:7px;
+    padding:7px 7px;
+  }
+  .sacred-pill-dark{
+    white-space:normal;
+    text-align:center;
+  }
+}
+</style>
+
+<script>
+/* ← Back breadcrumb logic */
+(function(){
+  const backBtn = document.querySelector('[data-sacred-back]');
+  if(!backBtn) return;
+
+  backBtn.addEventListener('click', () => {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = 'https://www.vervenveda.com/home';
+    }
+  });
+})();
+</script>
